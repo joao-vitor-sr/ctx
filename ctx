@@ -1,0 +1,23 @@
+#!/bin/bash
+
+get_xrdb_options() {
+	xrdb -query | awk '{print $1}'
+}
+
+get_option() {
+	xrdb -query | grep "$1" | awk '{print $2}'
+}
+
+main() {
+	input_file="$1"
+	output_file="$2"
+
+  cp -f "$input_file" "$output_file"
+
+	echo ""
+	while IFS= read -r line; do
+		sed -i "s/\$xrdb.$line/$(get_option "$line")/g" "$output_file"
+	done < <(printf '%s\n' "$(get_xrdb_options)")
+}
+
+main "$@"
