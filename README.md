@@ -4,7 +4,7 @@ _ctx_ is a script to convert variables in a file into a xrdb based content
 
 ## Install
 
-If on `linux` and installed using make, run `sudo make uninstall-old` first
+If on `linux` and installed using make, run `sudo make uninstall` first
 
 1. Run the following commands
 
