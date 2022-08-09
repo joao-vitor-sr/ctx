@@ -7,11 +7,9 @@ LICENSEDIR=${PREFIX}/share/licenses/ctx
 
 doc:
 	mkdir -p ${DESTDIR}${MANDIR}/man1
-	mkdir -p ${DESTDIR}${MANDIR}/man5
 	mkdir -p ${DESTDIR}${LICENSEDIR}
-	chmod 644 docs/man/ctx.1 docs/man/ctx.5 LICENSE
+	chmod 644 docs/man/ctx.1 LICENSE
 	cp docs/man/ctx.1 ${DESTDIR}${MANDIR}/man1
-	cp docs/man/ctx.5 ${DESTDIR}${MANDIR}/man5
 	cp LICENSE ${DESTDIR}${LICENSEDIR}
 
 install:
@@ -21,7 +19,6 @@ install:
 
 uninstall:
 	rm -f ${DESTDIR}${MANDIR}/man1/ctx.1
-	rm -f ${DESTDIR}${MANDIR}/man5/ctx.5
 	rm -rf ${DESTDIR}${DOCDIR}
 	rm -rf ${DESTDIR}${LICENSEDIR}
 	rm -f ${DESTDIR}${BINDIR}/${PROG}
